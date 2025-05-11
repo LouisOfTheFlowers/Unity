@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 5.0f;
+    public float speed = 8.0f;
     public Projectile laserPrefab;
     private bool laserActive;
 
@@ -25,18 +25,14 @@ public class Player : MonoBehaviour
     }
     private void shoot()
     {
-        if (!laserActive)
-        {
+        
            Projectile projectile =  Instantiate(this.laserPrefab, this.transform.position, Quaternion.identity);
-            projectile.destroyed += laserDestroyed;
+           
             laserActive = true;
-        }
+        
         
     }
-    private void laserDestroyed()
-    {
-        laserActive = false;
-    }
+   
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Invader") || other.gameObject.layer == LayerMask.NameToLayer("Missile"))
