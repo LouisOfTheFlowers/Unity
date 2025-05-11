@@ -9,7 +9,7 @@ public class Invaders : MonoBehaviour
     public int columns = 11;
     private Vector3 _direction = Vector2.right;
     public AnimationCurve speed;
-    public float MissileAttackRate = 1.0f;
+    public float MissileAttackRate = 0.1f;
     public Projectile missilePrefab;
     public int amountKilled { get; private set; }
     public int totalInvaders=> this.rows * this.columns;
